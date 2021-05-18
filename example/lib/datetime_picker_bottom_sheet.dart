@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 
 class DateTimePickerBottomSheet extends StatefulWidget {
-  DateTimePickerBottomSheet({Key key}) : super(key: key);
+  DateTimePickerBottomSheet({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _DateTimePickerBottomSheetState();
@@ -22,7 +22,7 @@ class _DateTimePickerBottomSheetState extends State<DateTimePickerBottomSheet> {
   DateTimePickerLocale _locale = DateTimePickerLocale.zh_cn;
   List<DateTimePickerLocale> _locales = DateTimePickerLocale.values;
 
-  DateTime _dateTime;
+  late DateTime _dateTime;
 
   @override
   void initState() {
@@ -62,9 +62,9 @@ class _DateTimePickerBottomSheetState extends State<DateTimePickerBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> radios = List<Widget>();
-    _locales.forEach((locale) {
-      radios.add(Container(
+    List<Widget> radios = List.generate(_locales.length, (index) {
+      var locale = _locales[index];
+      return Container(
         margin: EdgeInsets.only(right: 8.0),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -74,7 +74,7 @@ class _DateTimePickerBottomSheetState extends State<DateTimePickerBottomSheet> {
                 groupValue: _locale,
                 onChanged: (value) {
                   setState(() {
-                    _locale = value;
+                    _locale = value as DateTimePickerLocale;
                   });
                 }),
             Text(locale
@@ -82,11 +82,11 @@ class _DateTimePickerBottomSheetState extends State<DateTimePickerBottomSheet> {
                 .substring(locale.toString().indexOf('.') + 1)),
           ],
         ),
-      ));
+      );
     });
 
     TextStyle hintTextStyle =
-        Theme.of(context).textTheme.subhead.apply(color: Color(0xFF999999));
+        Theme.of(context).textTheme.subhead!.apply(color: Color(0xFF999999));
     return Scaffold(
       appBar: AppBar(title: Text('DateTimePicker Bottom Sheet')),
       body: Container(
@@ -149,7 +149,7 @@ class _DateTimePickerBottomSheetState extends State<DateTimePickerBottomSheet> {
                       value: _showTitle,
                       onChanged: (value) {
                         setState(() {
-                          _showTitle = value;
+                          _showTitle = value!;
                         });
                       })
                 ],
