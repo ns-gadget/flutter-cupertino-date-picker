@@ -239,8 +239,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       alignment: Alignment.center,
       child: Text(
         DateTimeFormatter.formatDateTime(value, format, widget.locale),
-        style: widget.pickerTheme!.itemTextStyle ??
-            DATETIME_PICKER_ITEM_TEXT_STYLE,
+        style: widget.pickerTheme!.itemTextStyle,
       ),
     );
   }
@@ -295,7 +294,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     if (dayRangeChanged) {
       // day range changed, need limit the value of selected day
       if (!widget.onMonthChangeStartWithFirstDate) {
-        max(min(_currDay!, dayRange.last)!, dayRange.first);
+        max(min(_currDay!, dayRange.last), dayRange.first);
       } else {
         _currDay = dayRange.first;
       }

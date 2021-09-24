@@ -29,11 +29,11 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
   @override
   Widget build(BuildContext context) {
     TextStyle hintTextStyle =
-        Theme.of(context).textTheme.subhead!.apply(color: Color(0xFF999999));
+        Theme.of(context).textTheme.subtitle1!.apply(color: Color(0xFF999999));
     return Scaffold(
       appBar: AppBar(title: Text('TimePicker Bottom Sheet')),
       body: Container(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
             // min datetime hint
@@ -46,7 +46,7 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
                     child: Text('min DateTime:', style: hintTextStyle),
                   ),
                   Text(MIN_DATETIME.substring(11),
-                      style: Theme.of(context).textTheme.subhead),
+                      style: Theme.of(context).textTheme.subtitle1),
                 ],
               ),
             ),
@@ -61,14 +61,14 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
                     child: Text('max DateTime:', style: hintTextStyle),
                   ),
                   Text(MAX_DATETIME.substring(11),
-                      style: Theme.of(context).textTheme.subhead),
+                      style: Theme.of(context).textTheme.subtitle1),
                 ],
               ),
             ),
 
             // init datetime hint
             Padding(
-              padding: EdgeInsets.only(bottom: 8.0),
+              padding: EdgeInsets.only(bottom: 0.0),
               child: Row(
                 children: <Widget>[
                   Container(
@@ -76,7 +76,7 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
                     child: Text('init DateTime:', style: hintTextStyle),
                   ),
                   Text(INIT_DATETIME.substring(11),
-                      style: Theme.of(context).textTheme.subhead),
+                      style: Theme.of(context).textTheme.subtitle1),
                 ],
               ),
             ),
@@ -98,7 +98,7 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
                     margin: EdgeInsets.only(right: 8.0),
                     child: Text('custom title height:', style: hintTextStyle),
                   ),
-                  Text('56.0', style: Theme.of(context).textTheme.subhead),
+                  Text('56.0', style: Theme.of(context).textTheme.subtitle1),
                 ],
               ),
             ),
@@ -117,17 +117,17 @@ class _TimePickerBottomSheetState extends State<TimePickerBottomSheet> {
 
             // selected time
             Container(
-              margin: EdgeInsets.only(top: 40.0),
+              margin: EdgeInsets.only(top: 0.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text('Selected Time:',
-                      style: Theme.of(context).textTheme.subhead),
+                      style: Theme.of(context).textTheme.subtitle1),
                   Container(
                     padding: EdgeInsets.only(left: 12.0),
                     child: Text(
                         '${_dateTime.hour.toString().padLeft(2, '0')}:${_dateTime.minute.toString().padLeft(2, '0')}:${_dateTime.second.toString().padLeft(2, '0')}',
-                        style: Theme.of(context).textTheme.title),
+                        style: Theme.of(context).textTheme.bodyText1),
                   ),
                 ],
               ),

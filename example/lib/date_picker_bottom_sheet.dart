@@ -16,7 +16,7 @@ const String INIT_DATETIME = '2019-05-17';
 class _DatePickerBottomSheetState extends State<DatePickerBottomSheet> {
   bool _showTitle = true;
 
-  DateTimePickerLocale _locale = DateTimePickerLocale.en_us;
+  DateTimePickerLocale _locale = DateTimePickerLocale.jp;
   List<DateTimePickerLocale> _locales = DateTimePickerLocale.values;
 
   String _format = 'yyyy-MMMM-dd';
@@ -59,11 +59,11 @@ class _DatePickerBottomSheetState extends State<DatePickerBottomSheet> {
     });
 
     TextStyle hintTextStyle =
-        Theme.of(context).textTheme.subhead!.apply(color: Color(0xFF999999));
+        Theme.of(context).textTheme.subtitle1!.apply(color: Color(0xFF999999));
     return Scaffold(
       appBar: AppBar(title: Text('DatePicker Bottom Sheet')),
       body: Container(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
             // min datetime hint
@@ -76,7 +76,7 @@ class _DatePickerBottomSheetState extends State<DatePickerBottomSheet> {
                     child: Text('min DateTime:', style: hintTextStyle),
                   ),
                   Text(MIN_DATETIME,
-                      style: Theme.of(context).textTheme.subhead),
+                      style: Theme.of(context).textTheme.subtitle1),
                 ],
               ),
             ),
@@ -90,7 +90,7 @@ class _DatePickerBottomSheetState extends State<DatePickerBottomSheet> {
                       width: 115.0,
                       child: Text('max DateTime:', style: hintTextStyle)),
                   Text(MAX_DATETIME,
-                      style: Theme.of(context).textTheme.subhead),
+                      style: Theme.of(context).textTheme.subtitle1),
                 ],
               ),
             ),
@@ -104,7 +104,7 @@ class _DatePickerBottomSheetState extends State<DatePickerBottomSheet> {
                       width: 115.0,
                       child: Text('init DateTime:', style: hintTextStyle)),
                   Text(INIT_DATETIME,
-                      style: Theme.of(context).textTheme.subhead),
+                      style: Theme.of(context).textTheme.subtitle1),
                 ],
               ),
             ),
@@ -141,7 +141,7 @@ class _DatePickerBottomSheetState extends State<DatePickerBottomSheet> {
             // locale check radio group
             Container(
               width: double.infinity,
-              margin: EdgeInsets.only(top: 16.0),
+              margin: EdgeInsets.only(top: 0.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -153,17 +153,17 @@ class _DatePickerBottomSheetState extends State<DatePickerBottomSheet> {
 
             // selected date
             Container(
-              margin: EdgeInsets.only(top: 40.0),
+              margin: EdgeInsets.only(top: 0.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text('Selected Date:',
-                      style: Theme.of(context).textTheme.subhead),
+                      style: Theme.of(context).textTheme.subtitle1),
                   Container(
                     padding: EdgeInsets.only(left: 12.0),
                     child: Text(
                       '${_dateTime.year}-${_dateTime.month.toString().padLeft(2, '0')}-${_dateTime.day.toString().padLeft(2, '0')}',
-                      style: Theme.of(context).textTheme.title,
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ),
                 ],
